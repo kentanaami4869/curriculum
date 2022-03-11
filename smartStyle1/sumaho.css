@@ -2,10 +2,12 @@
 
     .header {
         width: 150px;
+        float: none;
     }
 
     .right {
         width: 150px;
+        float: none;
     }
 
     .footer {
