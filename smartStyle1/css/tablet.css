@@ -1,0 +1,15 @@
+@media screen and (max-width: 767px) {
+
+    .header {
+        width: 250px;
+    }
+
+    .right {
+        width: 100px;
+    }
+
+    .footer {
+        width: 250px;
+    }
+
+}
