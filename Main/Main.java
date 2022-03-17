@@ -10,8 +10,8 @@ public class Main{
         System.out.println();
         
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 4; j > i; j--){
+        for (int i = 0; i< data.length ; i++) {
+            for (int j = data.length ;j> i; j--){
 
                 if(data[ 3 ] > data[ 4 ]){
                   int box = data[ 3 ];
