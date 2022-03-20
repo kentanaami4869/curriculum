@@ -10,13 +10,13 @@ public class Main{
         System.out.println();
         
 
-        for (int i = 0; i< data.length ; i++) {
-            for (int j = data.length ;j> i; j--){
+        for (int i = 0; i< data.length -1; i++) {
+            for (int j = data.length -1;j> i; j--){
 
-                if(data[ 3 ] > data[ 4 ]){
-                  int box = data[ 3 ];
-                  data[ 3 ] = data[ 4 ];
-                  data[ 4 ] = box;
+                if(data[ j - i ] > data[ j ]){
+                  int box = data[ j - i ];
+                  data[ j - i ] = data[ j ];
+                  data[ j ] = box;
                   
                 }
             }
