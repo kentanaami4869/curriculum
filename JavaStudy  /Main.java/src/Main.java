@@ -45,22 +45,22 @@ public class Main {
 	}
 		
 //      問⑦ 配列arrayDateに今の年・月・日を入れてください。
-          
+          String[] arrayDate= {"2022-04-23"};
 
            Calendar cal = Calendar.getInstance();
-           
+           cal.add(Calendar.MONTH, 7);
            
            //	    <以下記述>
 //      問⑧ 配列arrayDateをList型に変更しましょう。
 //	    <以下記述>
-           List<String> days1 = new ArrayList<String>();
-           days1.add("2022");
-           days1.add("4");
-           days1.add("23");
+           List<String> arrayDate1 = new ArrayList<String>();
+           arrayDate1.add("2022");
+           arrayDate1.add("4");
+           arrayDate1.add("23");
 //      問⑨ 上記で格納した要素を繰り返しで出力しましょう。
 //	    <以下記述>
-           for (int i = 0; i < days1.size(); i++) {
-               System.out.println(days1.get(i));
+           for (int i = 0; i < arrayDate1.size(); i++) {
+               System.out.println(arrayDate1.get(i));
 			}
 		}
 }
