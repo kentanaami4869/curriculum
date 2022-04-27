@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -45,22 +46,22 @@ public class Main {
 	}
 		
 //      問⑦ 配列arrayDateに今の年・月・日を入れてください。
-          String[] arrayDate= {"2022-04-23"};
 
-           Calendar cal = Calendar.getInstance();
-           cal.add(Calendar.MONTH, 7);
+          Calendar cal = Calendar.getInstance();
+          Integer[] arrayDate = new Integer[3];
+          arrayDate[0] = cal.get(Calendar.YEAR);
+          arrayDate[1] = cal.get(Calendar.MONTH);
+          arrayDate[2] = cal.get(Calendar.DATE);
            
-           //	    <以下記述>
-//      問⑧ 配列arrayDateをList型に変更しましょう。
-//	    <以下記述>
-           List<String> arrayDate1 = new ArrayList<String>();
-           arrayDate1.add("2022");
-           arrayDate1.add("4");
-           arrayDate1.add("23");
+          
+          List<Integer> arrayDateList = Arrays.asList(arrayDate);
+       
+           
+           
 //      問⑨ 上記で格納した要素を繰り返しで出力しましょう。
 //	    <以下記述>
-           for (int i = 0; i < arrayDate1.size(); i++) {
-               System.out.println(arrayDate1.get(i));
+           for (int i = 0; i < arrayDateList.size(); i++) {
+               System.out.println(arrayDateList.get(i));
 			}
 		}
 }
