@@ -16,7 +16,7 @@ public class SelectServlet extends HttpServlet {
             throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         // 問① select.htmlから渡された値を受け取るために下記を修正しましょう。
-        String value = request.getParameter("/month");
+        String value = request.getParameter("month");
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         // 問② エビデンスと同じ表示になるように修正しましょう。
