@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<temp-directories>
+  <temp-directory age="0" key="localhost の apache-tomcat-8.0.53" path="tmp3" recycle="false"/>
+  <temp-directory age="0" key="Tomcat9_Java11" path="tmp1" recycle="false"/>
+  <temp-directory age="0" key="Tomcat7_Java7" path="tmp2" recycle="false"/>
+</temp-directories>
