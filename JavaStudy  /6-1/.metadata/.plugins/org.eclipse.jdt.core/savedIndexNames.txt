@@ -2,6 +2,7 @@ INDEX VERSION 1.131+/Users/kentanaami/LetsEngineer/curriculum/JavaStudy  /6-1/.m
 2677698876.index
 3915681591.index
 2824476797.index
+2282201987.index
 575002030.index
 466924099.index
 3084917007.index
@@ -18,7 +19,6 @@ INDEX VERSION 1.131+/Users/kentanaami/LetsEngineer/curriculum/JavaStudy  /6-1/.m
 3989770782.index
 511044096.index
 2536154026.index
-3470850770.index
 2352688670.index
 2113266561.index
 1996379627.index
@@ -34,7 +34,6 @@ INDEX VERSION 1.131+/Users/kentanaami/LetsEngineer/curriculum/JavaStudy  /6-1/.m
 1449475941.index
 112813097.index
 2983422394.index
-1865797976.index
 1622510227.index
 2577629146.index
 3967202994.index

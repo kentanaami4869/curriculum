@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-/Users/kentanaami/LetsEngineer/curriculum/JavaStudy  /6-1/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1439288702.index
-/HelloServlet/src/main/java
-/Users/kentanaami/LetsEngineer/curriculum/JavaStudy  /6-1/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3300452533.index
-/6-1/src
