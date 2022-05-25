@@ -136,3 +136,13 @@ java.lang.Exception: '.org.eclipse.egit.core.cmp' のプロジェクト記述フ
 
 !ENTRY org.eclipse.core.jobs 2 2 2022-05-21 15:19:53.475
 !MESSAGE プラットフォーム・シャットダウン後にまだ実行中のジョブが見つかりました。 ジョブはシャットダウン時にスケジュールされたプラグインによってキャンセルされる必要があります: org.eclipse.urischeme.AutoRegisterSchemeHandlersJob
+!SESSION 2022-05-23 19:15:00.917 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/kentanaami/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/kentanaami/.eclipse_keyring
+
+!ENTRY org.eclipse.ui 2 2 2022-05-23 23:52:44.708
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
