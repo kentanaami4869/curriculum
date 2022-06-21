@@ -1,17 +1,19 @@
-let numbers = [2, 5, 12, 13, 15, 18, 22];
-console.log(numbers[0]);
-console.log(numbers[2]);
-console.log(numbers[5]);
-console.log(numbers[6]);
-function isEven() {
 
+let numbers = [2, 5, 12, 13, 15, 18, 22];
+//ここに答えを実装してください。↓↓↓
+function isEven() {
+    for(let i=0;i<numbers.length;i++){
+        if (numbers[i] % 2 === 0){
     
-    console.log(num + 'は偶数です');  
+    console.log(numbers[i] + 'は偶数です');
+        }
     }
-    
+}
+isEven();
+
 class Car {
     constructor(gas,num){
-        this.gas=gas;
+        this.gas=gas;   
         this.num=num;
     }
 
@@ -21,4 +23,3 @@ class Car {
 }
 let car = new Car(12,4869);
 car.getNumGas();
-    
