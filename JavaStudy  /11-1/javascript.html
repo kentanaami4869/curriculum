@@ -17,58 +17,66 @@
     </style>
 </head>
 <body>
-    <select onchange="changeLang()">
-        <option id="select" >選択してください</option>
-        <option id="selected_jpn" >日本語</option>
-        <option id="selected_en"  >English</option>
-        <option id="selected_all" >全て表示</option>
+    <select id="language" onchange="changeLang()">
+        <option id="select" value="1">選択してください</option>
+        <option id="selected_jpn" value="2">日本語</option>
+        <option id="selected_en" value="3">English</option>
+        <option id="selected_all" value="4">全て表示</option>
     </select>
     <table>
-        <tr id="eng">
-            <th >日本</th>
-            <td >こんにちは</td>
-            <td >ありがとう</td>
-            <td >さようなら</td>
+        <tr id="japan" value="select">  
+            <th>日本</th>
+            <td>こんにちは</td>
+            <td>ありがとう</td>
+            <td>さようなら</td>
+           
+        
         </tr>
-        <tr id="jpn">
-            <th >English</th>
-            <td >Hello</td>
-            <td >Thank you</td>
-            <td >Good Bye</td>
+        <tr id="english" value="select1">
+            <th>English</th>
+            <td>Hello</td>
+            <td>Thank you</td>
+            <td>Good Bye</td>
+        
         </tr>
     </table>
 
+    <script>
+    function changeLang() {    
+        if (document.getElementById("language")) {
+    selectValue = document.getElementById("language").value;
     
+    if (selectValue == "1") {
+      
+      document.getElementById("japan").style.display = "";
+     
+      
+      document.getElementById("english").style.display = "";
+    } else if (selectValue == "2") {
+      
+      document.getElementById("english").style.display = "none";
+      
+      
+      document.getElementById("japan").style.display = "";
+    
+    }  else if (selectValue == "3") {
+      
+      document.getElementById("english").style.display = "";
+      
+      
+      document.getElementById("japan").style.display = "none";
+    }  else if (selectValue == "4") {
+      
+      document.getElementById("english").style.display = "";
+      
+      
+      document.getElementById("japan").style.display = "";
+
+    }
+  }
+}        
         
-    <script >
-       document.getElementById("select_en").style.display ="block";
-
-function changeLang(){
-	const select_en = document.getElementById("select_en");
-
-	if(jpn.style.display=="block"){
-		eng.style.display ="none";
-    }else{
-		
-		jpn.style.display ="block";
-	}
-
-}
-
-const select_jpn = document.getElementById("select_jpn");
-
-if(eng.style.display=="block"){
-    jpn.style.display ="none";
-}else{
-    
-    eng.style.display ="block";
-}
-
-  
+       
     </script>
-
-
-    
-    
 </body>
 </html>
