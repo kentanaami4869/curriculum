@@ -11,7 +11,8 @@ public class Main {
 	    private static String lastName = "Ken";
 		
 	    private void printName(String firstName,String lastName) {
-	    	System.out.println(firstName + lastName);
+	    	String fullname = firstName + lastName;
+	    	System.out.println(fullname);
 	    }
 	    
 	    public static void main(String[] args) {
