@@ -17,14 +17,14 @@
 	<!-- サイドバー -->
 	<aside th:include="layout/aside :: side"></aside>
 	<!-- メイン -->
-	<article class="mypage">
+	<article class="edit_fin">
 		<h3 class="page_title">マイページ変更完了画面</h3>
 		
-	<form th:action="@{/edit_fin}" th:object="${mypage}" method="post" >
+	
 
                 
-                <button>戻る</button>
-            </form>     
+                <input type="submit" value="戻る" class="btn">
+              
    
     </article>
 	<!-- フッダー -->
