@@ -15,7 +15,7 @@
 	<aside th:include="layout/aside :: side"></aside>
 	<!-- メイン -->
 	<article class="mypage">
-		<form action="@{edit_fin}" method="post" >
+		<form th:action="@{/editFin}" method="post">
 			
 
 			<h3 class="page_title">マイページ変更・確認画面</h3>
@@ -30,28 +30,28 @@
 				</tr>
 				<tr>
 					<th class="cell_title">名前</th>
-					<td><input type="text" name="empName" 
+					<td><input type="text"  th:name="empName"
 						th:value="${userInfo.empName}" /></td>
 
 				</tr>
 				<tr>
 					<th class="cell_title">パスワード</th>
-					<td><input type="password" name="password"  
+					<td><input type="password"  th:name="password" 
 						th:value="${userInfo.password}"/></td>
 
 				</tr>
 				<tr>
 					<th class="cell_title">生年月日</th>
-					<td><input type="text" name="birthday"  
+					<td><input type="text"  th:name="birthday" 
 						th:value="${#dates.format(userInfo.birthday,'yyyy-MM-dd')}" /></td>
 
 				</tr>
 				
 				<tr>
 					<td><label for="gender">性別</label>
-					<td><input type="radio"  name="gender" value="男性" /> 
+					<td><input type="radio" th:name="gender"  value="男性" /> 
 						<label for="radioA">男性</label>
-						 <input type="radio"  name="gender" value="女性" />
+						 <input type="radio" th:name="gender" value="女性" />
 						 <label for="radioB">女性</label></td>
 				</tr>
 			</table>

@@ -30,18 +30,19 @@ public class IndexController {
 
 	@Autowired
 	EmployeeRepository empRepository;
-	LoginForm loginform;
+	LoginForm loginForm;
+	HttpSession session;
 	/**
 	 * ログイン画面を表示する
 	 * @param loginForm
 	 * @return login.html
 	 */
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
-	public String login( LoginForm loginForm,BindingResult br,Model model) {
+	public String login(LoginForm loginForm,BindingResult br,Model model) {
 		return "login";
 	}
-	@Autowired
-	HttpSession session;
+	
+	
 
 	// 処理
 	/**
@@ -82,19 +83,29 @@ public class IndexController {
 
 	@RequestMapping(path = "/top", method = RequestMethod.GET)
 	public String top(@Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
+		session = req.getSession();
 		List<Employee> empAll= empRepository.findAll();    
 		model.addAttribute("empAll",empAll);
 
 		return "top";
 
 	}
-
+	// 処理
+		/**
+		 * 入力された値を元に情報を更新し、更新完了画面に遷移する
+		 *
+		 * @param req
+		 * @param res
+		 * @param loginForm 
+		 * @param editFin
+		 * @return edit_fin.html
+		 */
 
 
 
 	@RequestMapping(path = "/mypage", method = RequestMethod.POST)
 	public String empUser(@Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) throws ParseException   {
-		session = req.getSession();
+		
 
 		String empName = req.getParameter("empName");
 		String password = req.getParameter("password");
@@ -119,11 +130,11 @@ public class IndexController {
 
 
 		Employee updateEmployee = empRepository.save(userInfoUpdate);
-		model.addAttribute("updateUser",updateEmployee);
+		model.addAttribute("employee",updateEmployee);
 
 
 
-		return "/mypage";
+		return "editFin";
 	}
 
 	// TODO 自動生成されたメソッド・スタブ
@@ -131,33 +142,37 @@ public class IndexController {
 	@RequestMapping(path = "/mypage", method = RequestMethod.GET)
 	public String empLink(LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
 		session = req.getSession();
-		Object userInfo=session.getAttribute("updateUser");
+		Object userInfo=session.getAttribute("userInfo");
 
-		model.addAttribute("updateUser",userInfo);
-		return "/edit_fin";
+		model.addAttribute("userInfo",userInfo);
+		return "mypage";
 	}
 
-//	@RequestMapping(path ="/edit_fin", method = RequestMethod.POST)
-//	public String empBack(@RequestParam("empName") String empName,@RequestParam("password") String password,@RequestParam("bithday") String birthday,@RequestParam("gender") String gender, @Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
-//		session = req.getSession();
-//
-//		
-//
-//		
-//		return "edit_fin";
-//	}
-//	@RequestMapping(path = "/edit_fin", method = RequestMethod.GET)
-//	public String edit(@RequestParam("empName") String empName,@RequestParam("password") String password,@RequestParam("bithday") String birthday,@RequestParam("gender") String gender, @Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
-//		session = req.getSession();
-//		model.addAttribute("userInfo1",empName);
-//		model.addAttribute("userInfo2",password);
-//		model.addAttribute("userInfo3",birthday);
-//		model.addAttribute("userInfo4",gender);
-//		
-//		return "edit_fin";
-//	
-//}
+	@RequestMapping(path ="/editFin", method = RequestMethod.POST)
+	public String empBack(@Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
+		session = req.getSession();
+		
+		
+		
+
+		
+		return "editFin";
+	}
+	/**
+	 * 更新完了画面を表示する
+	 * @param editFin
+	 * @return edit_fin.html
+	 */
+	@RequestMapping(path = "/editFin", method = RequestMethod.GET)
+	public String edit(@Validated LoginForm loginForm, Employee editFin ,HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
+		
+		
+		
+
+		return "editFin";
+	}
 }
+
 
 
 
