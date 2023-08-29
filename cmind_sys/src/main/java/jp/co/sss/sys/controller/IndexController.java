@@ -32,6 +32,8 @@ public class IndexController {
 	EmployeeRepository empRepository;
 	LoginForm loginForm;
 	HttpSession session;
+	
+	
 	/**
 	 * ログイン画面を表示する
 	 * @param loginForm
@@ -61,7 +63,7 @@ public class IndexController {
 
 		Employee employee = empRepository.findByEmpIdAndPassword(empId, password);
 
-		//セッションデータ設定
+//		//セッションデータ設定
 		session.setAttribute("userInfo",employee);
 		model.addAttribute("employee",employee);
 
@@ -104,14 +106,14 @@ public class IndexController {
 
 
 	@RequestMapping(path = "/mypage", method = RequestMethod.POST)
-	public String empUser(@Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) throws ParseException   {
+	public String empUser(@Validated  LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) throws ParseException   {
 		
 
 		String empName = req.getParameter("empName");
 		String password = req.getParameter("password");
 		String date =  req.getParameter("birthday");
 		String savegender = req.getParameter("gender");
-
+		
 
 
 
@@ -120,13 +122,14 @@ public class IndexController {
 		Date birthday = sdFormat.parse(date);
 
 		int gender = Integer.parseInt(savegender);
+		
 
-
-		Employee userInfoUpdate = (Employee) session.getAttribute("updateUser");
+		Employee userInfoUpdate= (Employee) session.getAttribute("employee");
 		userInfoUpdate.setEmpName(empName);
 		userInfoUpdate.setPassword(password);
 		userInfoUpdate.setBirthday(birthday);
 		userInfoUpdate.setGender(gender);
+		
 
 
 		Employee updateEmployee = empRepository.save(userInfoUpdate);
