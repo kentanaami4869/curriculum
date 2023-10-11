@@ -27,13 +27,14 @@ import jp.co.sss.sys.repository.EmployeeRepository;
 @Controller
 @SessionAttributes(types = Employee.class) 
 public class IndexController {
+	
 
 	@Autowired
 	EmployeeRepository empRepository;
 	LoginForm loginForm;
 	HttpSession session;
 	
-	
+
 	/**
 	 * ログイン画面を表示する
 	 * @param loginForm
@@ -112,7 +113,7 @@ public class IndexController {
 		String empName = req.getParameter("empName");
 		String password = req.getParameter("password");
 		String date =  req.getParameter("birthday");
-		String savegender = req.getParameter("gender");
+//		String savegender = req.getParameter("gender");
 		
 
 
@@ -121,14 +122,14 @@ public class IndexController {
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date birthday = sdFormat.parse(date);
 
-		int gender = Integer.parseInt(savegender);
+//		int gender = Integer.parseInt(savegender);
 		
 
 		Employee userInfoUpdate= (Employee) session.getAttribute("employee");
 		userInfoUpdate.setEmpName(empName);
 		userInfoUpdate.setPassword(password);
 		userInfoUpdate.setBirthday(birthday);
-		userInfoUpdate.setGender(gender);
+//		userInfoUpdate.setGender(gender);
 		
 
 
@@ -144,10 +145,17 @@ public class IndexController {
 
 	@RequestMapping(path = "/mypage", method = RequestMethod.GET)
 	public String empLink(LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
+		List<Employee> gender= empRepository.findAll(); 
+		model.addAttribute("empAll", gender);
+//		radioGender = initRadioGender();
+//        model.addAttribute("radioGender", radioGender);
+        
+        
+        
 		session = req.getSession();
 		Object userInfo=session.getAttribute("userInfo");
-
 		model.addAttribute("userInfo",userInfo);
+		
 		return "mypage";
 	}
 
