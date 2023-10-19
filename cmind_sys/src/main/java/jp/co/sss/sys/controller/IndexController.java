@@ -57,35 +57,42 @@ public class IndexController {
 	 * @return top.html
 	 */
 	@RequestMapping(path = "/top", method = RequestMethod.POST)
-	public String login(@Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
+	public String login(@Validated LoginForm loginForm,BindingResult error, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
 		//ログインした人の情報
-		String empId = req.getParameter("empId");
-		String password = req.getParameter("password");
-
-		Employee employee = empRepository.findByEmpIdAndPassword(empId, password);
-
-//		//セッションデータ設定
-		session.setAttribute("userInfo",employee);
-		model.addAttribute("employee",employee);
+		if(error.hasErrors()){
+            return "login";
+        }
+		
+		List<Employee> empAll= empRepository.findAll();    
+		model.addAttribute("empAll",empAll);
+		return "top";
+        
+//		String empId = req.getParameter("empId");
+//		String password = req.getParameter("password");
+//
+//		Employee employee = empRepository.findByEmpIdAndPassword(empId, password);
+//
+////		//セッションデータ設定
+//		session.setAttribute("userInfo",employee);
+//		model.addAttribute("employee",employee);
 
 		//ログインチェック
-		if(employee == null) {
-			//存在しない場合
-			return "login";
-
-		}else {
+//		if(employee == null) {
+//			//存在しない場合
+//			return "login";
+//
+//		}else {
 			//存在した場合
 			//社員情報一覧
-			List<Employee> empAll= empRepository.findAll();    
-			model.addAttribute("empAll",empAll);
+			
 
-			return "top";
+			
 
-		}
+		
 	}
 
 	@RequestMapping(path = "/top", method = RequestMethod.GET)
-	public String top(@Validated LoginForm loginForm, HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
+	public String top(HttpServletRequest req, HttpServletResponse res,BindingResult br,Model model,HttpSession session) {
 		session = req.getSession();
 		List<Employee> empAll= empRepository.findAll();    
 		model.addAttribute("empAll",empAll);

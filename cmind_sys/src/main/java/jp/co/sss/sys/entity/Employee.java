@@ -10,8 +10,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 //import org.hibernate.annotations.NamedQuery;
 
@@ -35,13 +33,9 @@ public class Employee {
 	 */
 	@Id
 	@Column(name ="emp_id" )
-	@NotEmpty(message = "社員番号は入力必須項目です")
-    @Size(max = 5, message = "社員番号は5文字以内で入力してください")
 	private String empId;
 	
 	@Column (name="emp_name")
-	@NotEmpty(message = "パスワードは入力必須項目です")
-    @Size(max = 16, message = "パスワードは16文字以内で入力してください")
 	private String empName;
 	
 	@Column  (name="password")
